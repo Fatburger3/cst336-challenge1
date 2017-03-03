@@ -13,7 +13,7 @@ function generatePassword($charCount, $letterToExclude)
         {
             $c = $alpha[rand(0,25)];
         }
-        $result = $result + $c;
+        $result = $result . $c;
     }
     return $result;
 }
