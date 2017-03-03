@@ -46,7 +46,12 @@ function generatePassword($charCount, $letterToExclude)
         <?php
         if($_SERVER['REQUEST_METHOD'] === 'POST')
         {
-            echo 'post';
+            $n = $_POST['npws'];
+            $passwords = array();
+            for($i = 0; $i < n; $i++)
+            {
+                $passwords[] = generatePassword($_POST['nchars'],$_POST['xletter']);
+            }
         }
         ?>
     </body>
