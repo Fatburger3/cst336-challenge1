@@ -28,7 +28,7 @@ function generatePassword($charCount, $letterToExclude)
         <h1>Challenge Activity</h1></h1>
         
         <?php echo generatePassword(6, 'z');?>
-        <form method="get">
+        <form method="post">
             How many passwords?
             <input type="number" name="npws">
             <br /> <br />
@@ -43,5 +43,11 @@ function generatePassword($charCount, $letterToExclude)
             <br /><br />
             <input type="submit" name="generate" value="Generate Passwords">
         </form>
+        <?php
+        if($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            echo 'post';
+        }
+        ?>
     </body>
 </html>
