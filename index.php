@@ -27,7 +27,6 @@ function generatePassword($charCount, $letterToExclude)
     <body>
         <h1>Challenge Activity</h1></h1>
         
-        <?php echo generatePassword(6, 'z');?>
         <form method="post">
             How many passwords?
             <input type="number" name="npws">
@@ -48,9 +47,15 @@ function generatePassword($charCount, $letterToExclude)
         {
             $n = $_POST['npws'];
             $passwords = array();
-            for($i = 0; $i < n; $i++)
+            for($i = 0; $i < $n; $i++)
             {
                 $passwords[] = generatePassword($_POST['nchars'],$_POST['xletter']);
+            }
+            sort($passwords);
+            for($i = 0; $i < $n; $i++)
+            {
+                echo $passwords[$i];
+                echo '<br/>';
             }
         }
         ?>
