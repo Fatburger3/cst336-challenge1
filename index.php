@@ -1,15 +1,23 @@
 <?php
 
-$alpha = array('a', 'b', 'c', 'd', 'e', 'f', 'e', 'f', 'g', '');
+$alpha = str_split('abcdefghijklmnopqrstuvwxyz');
 
 function generatePassword($charCount, $letterToExclude)
 {
-    
+    global $alpha;
+    $result = '';
     for($i=0; $i < $charCount; $i++)
     {
-        $r = rand(0,24);
+        $c = $letterToExclude;
+        while($c == $letterToExclude)
+        {
+            $c = $alpha[rand(0,25)];
+        }
+        $result = $result + $c;
     }
+    return $result;
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,6 +27,7 @@ function generatePassword($charCount, $letterToExclude)
     <body>
         <h1>Challenge Activity</h1></h1>
         
+        <?php echo generatePassword(6, 'z');?>
         <form method="get">
             How many passwords?
             <input type="number" name="npws">
